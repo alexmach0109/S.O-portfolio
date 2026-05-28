@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shevchenko O. — Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo"><a href="index.html">S.O.O</a></div>
+        <button class="menu-toggle" id="menuToggle">Menu</button>
+    </header>
+
+    <nav class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-header">
+            <div class="logo">Shevchenko O.</div>
+            <button class="menu-close" id="menuClose">Close</button>
+        </div>
+        <div class="menu-links">
+            <a href="index.html#about" class="menu-link">About</a>
+            <a href="index.html#skills" class="menu-link">Skills</a>
+            <a href="index.html#comments" class="menu-link">Comments</a>
+            <a href="index.html#works" class="menu-link">Works</a>
+            <a href="index.html#bysite" class="menu-link">By site</a>
+            <a href="index.html#contact" class="menu-link">Contact</a>
+        </div>
+        <div class="menu-footer">
+            <span class="dot"></span>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        
+        <section class="hero-section" id="about">
+            <h1 class="main-title">Shevchenko O.</h1>
+            <div class="profile-image-container">
+                <img src="img/I.jpg" alt="Shevchenko Oleksandr" class="profile-img">
+            </div>
+        </section>
+
+        <!-- Оновлена info-section з додаванням 5 навичок -->
+        <section class="info-section" id="skills">
+            <div class="info-block info-experience">
+                <h3 class="section-label">Experiences</h3>
+                <div class="info-content">
+                    <h4>Programmer/SCS</h4>
+                    <p class="date">2022 - 2026</p>
+                </div>
+            </div>
+            <div class="info-block info-about">
+                <h3 class="section-label">About</h3>
+                <div class="info-content">
+                    <p>Hello! My name is Oleksandr Shevchenko, an advanced website builder. I am driven by a passion for creating engaging digital experiences, and I strive to push the boundaries of design and coding. By keeping up with the ever-changing landscape of trends and technologies, I offer innovative solutions that not only exceed customer expectations, but also create unforgettable user experiences.</p>
+                </div>
+            </div>
+            <div class="info-block info-skills">
+                <h3 class="section-label">Skills</h3>
+                <div class="info-content">
+                    <ul class="skills-list">
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Responsive & Web Design</li>
+                        <li>Git / Webpack / Vite</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новий блок: Плавний слайдер з коментарями (відгуками) -->
+        <section class="comments-section" id="comments">
+            <h3 class="section-label">Comments</h3>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <!-- Слайди (повторюються двічі для створення ефекту нескінченності) -->
+                    <div class="comment-slide">
+                        <p class="comment-text">"Great work! The website was delivered on time, and the design exceeded expectations. I highly recommend Oleksandr as a professional."</p>
+                        <span class="comment-author">Oleksiy, CEO Barbershop</span>
+                    </div>
+                    <div class="comment-slide">
+                        <p class="comment-text">"Professional approach to development. Clean code, and responsiveness is top-notch. Thank you for the collaboration!"</p>
+                        <span class="comment-author">Tetiana, 2Grow Company</span>
+                    </div>
+                    <div class="comment-slide">
+                        <p class="comment-text">"Very satisfied with the calculator developed by Oleksandr. Fast, clear, and bug-free."</p>
+                        <span class="comment-author">Ivan, Engineer</span>
+                    </div>
+                    <!-- Дублюючі слайди для безшовного кола -->
+                    <div class="comment-slide">
+                        <p class="comment-text">"Great work! The website was delivered on time, and the design exceeded expectations. I highly recommend Oleksandr as a professional."</p>
+                        <span class="comment-author">Oleksiy, CEO Barbershop</span>
+                    </div>
+                    <div class="comment-slide">
+                        <p class="comment-text">"Professional approach to development. Clean code, and responsiveness is top-notch. Thank you for the collaboration!"</p>
+                        <span class="comment-author">Tetiana, 2Grow Company</span>
+                    </div>
+                    <div class="comment-slide">
+                        <p class="comment-text">"Very satisfied with the calculator developed by Oleksandr. Fast, clear, and bug-free."</p>
+                        <span class="comment-author">Ivan, Engineer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="works-section" id="works">
+            <h3 class="section-label">Selected Works</h3>
+            
+            <div class="works-grid">
+                <a href="barbershop.html" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="img/Borodinski.png" alt="Barbershop">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-title">Barbershop</span>
+                        <span class="work-year">2025-26</span>
+                    </div>
+                </a>
+
+                <a href="2grow.html" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="img/Coding2Grow.png" alt="2Grow">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-title">Coding2Grow</span>
+                        <span class="work-year">2025</span>
+                    </div>
+                </a>
+
+                <a href="calculator.html" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="img/Calculator.png" alt="Calculator">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-title">Calculator</span>
+                        <span class="work-year">2025</span>
+                    </div>
+                </a>
+
+                <a href="konditer.html" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="img/Konditer.png" alt="Confectioner">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-title">Confectioner</span>
+                        <span class="work-year">2025</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Новий блок: Форма замовлення сайту перед футером -->
+        <section class="order-section" id="bysite">
+            <div class="order-container">
+                <h3 class="section-label">Project Order</h3>
+                <h2>Order a site</h2>
+                <form class="order-form" action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" required placeholder="Describe your project..."></textarea>
+                    </div>
+                    <button type="submit" class="site-btn">Send a request</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Оновлений футер: Додано номер телефону після H2 у блоці section-label -->
+        <footer class="page-footer" id="contact">
+            <div class="footer-cta">
+                <span class="section-label">Ready To Make Waves?</span>
+                <h2>Contact</h2>
+                <div class="contact-phone">
+                    <span class="section-label">Phone & Email</span>
+                    <a href="tel:+380000000000" class="phone-link">+380 (00) 000-00-00</a>
+                    <a href="mailto:o.shevchenko@gmail.com" class="email-link">shevchenko@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026</span>
+                <button class="back-to-top" id="backToTop">Back to top</button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>

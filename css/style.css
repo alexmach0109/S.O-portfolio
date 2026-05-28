@@ -1,0 +1,522 @@
+/* ================= БАЗОВІ НАЛАШТУВАННЯ ТА ЗМІННІ ================= */
+:root {
+    --bg-color: #121212;
+    --text-color: #e5e5e5;
+    --text-muted: #8c8c8c;
+    --accent-color: #e1ff00; 
+    --border-color: rgba(255, 255, 255, 0.1);
+    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Налаштування для правильного притискання футера до низу вікна */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.page-content {
+    padding-top: 5rem;
+    flex: 1 0 auto; /* Дозволяє контенту розтягуватися, штовхаючи футер вниз */
+}
+
+/* ================= ШАПКА ТА МЕНЮ ================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4vw;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #00ff66;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    min-width: 18.75rem;
+    height: 100vh;
+    background-color: #1a1a1a;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2vw;
+    transform: translateX(100%); 
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -0.3rem 0 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-menu.active {
+    transform: translateX(0);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 1.5rem;
+    margin: auto 0;
+}
+
+.menu-link {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #d1d1d1;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.menu-link:hover {
+    color: var(--accent-color);
+    transform: translateX(0.3rem);
+}
+
+.menu-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.section-label::before {
+    content: '└';
+    color: var(--accent-color);
+}
+
+/* ================= ОСНОВНИЙ КОД: ДЕСКТОП ================= */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 6vw 4vw;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.main-title {
+    font-size: 8rem;
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -2px;
+}
+
+.profile-image-container {
+    width: 20rem;
+    height: 20rem;
+}
+
+.info-section, .project-hero, .project-details-section, .works-grid, .gallery-split, .next-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+}
+
+/* Оновлена секція info з підтримкою сітки навичок */
+.info-section {
+    padding: 4vw;
+    border-bottom: 1px solid var(--border-color);
+    row-gap: 4rem;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.info-content h4 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+}
+
+.info-content p, .project-details-section p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #b3b3b3;
+}
+.project-details-section {
+    padding: 0 4vw;
+}
+
+/* Стилізація списку навичок */
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    font-size: 1.4rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: #b3b3b3;
+    transition: all 0.3s ease;
+}
+
+.skills-list li:hover {
+    color: var(--accent-color);
+    padding-left: 0.5rem;
+}
+
+/* ================= СЛАЙДЕР ВІДГУКІВ (Плавне гортання) ================= */
+.comments-section {
+    padding: 4vw;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.slider-container {
+    margin-top: 2.5rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-320px * 3 - 2rem * 3)); } /* Швидкість адаптується під ширину та кількість карт */
+}
+
+.slider-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+}
+
+.slider-track:hover {
+    animation-play-state: paused; /* Слайдер зупиняється при наведенні */
+}
+
+.comment-slide {
+    width: 320px;
+    background: #181818;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: #e5e5e5;
+    margin-bottom: 2rem;
+}
+
+.comment-author {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================= РОБОТИ ТА КАРТКИ ================= */
+.works-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 4vw; 
+}
+
+.works-grid {
+    gap: 4vw 2vw;
+}
+
+.work-img-wrapper {
+    aspect-ratio: 16 / 0;
+}
+
+.work-img-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card:hover .work-img-wrapper img {
+    transform: scale(1.03);
+}
+
+.work-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.work-year {
+    font-size: 0.85rem;
+    background: #222;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ================= ФОРМА ЗАМОВЛЕННЯ САЙТУ ================= */
+.order-section {
+    padding: 2vw 4vw;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+}
+
+.order-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.order-container h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem 0 2.5rem 0;
+    letter-spacing: -1px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    background: #181818;
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: #1f1f1f;
+}
+
+.order-form .site-btn {
+    align-self: flex-start;
+    padding: 1.2rem 3rem;
+    font-weight: 500;
+}
+
+/* --- СТОРІНКА ПРОЄКТУ (Додаткові оригінальні стилі) --- */
+.project-hero { padding: 6vw 4vw; }
+.project-title { font-size: 7rem; font-weight: 400; }
+.project-description { font-size: 1.4rem; line-height: 1.5; margin-bottom: 2.5rem; }
+
+.project-specs {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+}
+
+.project-specs span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+.project-specs p { font-size: 1rem; margin-top: 0.3rem; }
+
+.project-main-image { padding: 0 4vw; margin-bottom: 6vw; }
+.project-details-section p { font-size: 1.25rem; margin-bottom: 2rem; }
+
+.site-btn, .site-btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--text-color);
+    border-radius: 1.25rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.site-btn:hover { background-color: var(--text-color); color: var(--bg-color); }
+.site-btn-secondary { border-color: rgba(255,255,255,0.2); }
+
+.project-gallery { display: flex; flex-direction: column; gap: 2vw; padding: 4vw; }
+
+.next-project-section { padding: 8vw 4vw; border-top: 1px solid var(--border-color); }
+.next-card { align-items: center; padding: 2vw; }
+.next-info h2 { font-size: 4rem; font-weight: 400; margin: 1.25rem 0; }
+
+/* ================= ФУТЕР (НА ВСЮ ШИРИНУ ТА ВНИЗУ) ================= */
+.page-footer { 
+    padding: 8vw 4vw 4vw 4vw;
+    border-top: 1px solid var(--border-color); 
+    width: 100%;
+    background-color: var(--bg-color);
+    margin-top: auto; /* Виштовхує футер в самий кінець */
+}
+
+.footer-cta h2, .email-link { font-size: 5rem; font-weight: 400; }
+.footer-cta h2 { margin-top: 0.6rem; }
+
+/* Блок телефону у блоці контакту */
+.contact-phone {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.phone-link {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    transition: color 0.3s;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.phone-link:hover {
+    color: var(--accent-color);
+}
+
+.email-link {
+    color: var(--text-muted);
+    line-height: 1;
+    transition: color 0.3s;
+}
+.email-link:hover { color: var(--accent-color); }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6vw;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%; /* На всю ширину вікна */
+}
+.footer-socials { display: flex; gap: 1.25rem; }
+
+
+/* ================= АДАПТИВНІ СТИЛІ (Медіазапити) ================= */
+
+/* ПЛАНШЕТИ (до 1024px) */
+@media (max-width: 1024px) {
+    .fullscreen-menu { width: 40vw; }
+    .menu-link { font-size: 2rem; }
+    .hero-section { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; padding: 6vw; }
+    .main-title { font-size: 6rem; }
+    .profile-image-container { width: 15rem; height: 15rem; }
+    
+    .info-section, .project-hero, .project-details-section, .next-card { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .works-grid { grid-template-columns: 1fr; }
+    .info-section, .works-grid, .page-footer { padding: 8vw 6vw; }
+    .info-section { row-gap: 3rem; }
+    .project-hero { padding: 6vw; }
+    
+    .order-container h2 { font-size: 3rem; }
+    .phone-link { font-size: 2.2rem; }
+    .footer-cta h2, .email-link { font-size: 3rem; }
+}
+
+/* МОБІЛЬНІ ПРИСТРОЇ (до 767px) */
+@media (max-width: 767px) {
+    .project-title { font-size: 4rem; }
+    .site-header { height: 4rem; padding: 0 6vw; }
+    .page-content { padding-top: 4rem; }
+    .fullscreen-menu { width: 75vw; }
+    .menu-link { font-size: 1.5rem; }
+    
+    .hero-section { padding: 8vw 6vw; gap: 1.5rem; }
+    .main-title { font-size: 3.5rem; }
+    .profile-image-container { width: 100%; aspect-ratio: 1/1; }
+    
+    .works-grid, .gallery-split, .footer-bottom { grid-template-columns: 1fr; }
+    .works-grid { padding: 8vw 6vw; gap: 2rem; }
+    
+    .comment-slide { width: 270px; padding: 1.5rem; }
+    .order-container h2 { font-size: 2.2rem; }
+    .order-form .site-btn { width: 100%; text-align: center; }
+    
+    .project-description { font-size: 1.1rem; }
+    .project-specs { flex-direction: column; gap: 1rem; }
+    .project-main-image, .project-gallery { padding: 5vw 6vw; }
+    .project-gallery, .gallery-split, .footer-socials { gap: 1rem; }
+    .project-details-section { padding: 0 5vw;}
+    
+    .next-card { padding: 1rem; }
+    .next-info h2 { font-size: 2.2rem; }
+    
+    .phone-link { font-size: 1.8rem; }
+    .footer-cta h2 { font-size: 2.4rem; word-break: break-all; }
+    .email-link { font-size: 2rem; word-break: break-all; }
+    .footer-socials { flex-direction: column; }
+    .footer-bottom { gap: 1rem; text-align: center; }
+    .back-to-top { margin-top: 0.5rem; }
+}
